@@ -570,7 +570,7 @@
 
             endTurn() {
                 try {
-                    window.rpgt.finishPlayerTurn();
+                    window.rpgt.endTurn();
                     this.showMessage('➡️ Turno finalizado! Inimigo atacou.', 'info');
                     setTimeout(() => this.updateUI(), 500);
                 } catch (error) {
