@@ -22,7 +22,7 @@ export default function App() {
   const updateGameState = () => {
     try {
       const status = webAPI.getStatus();
-      const turn = webAPI.getTurnInfo();
+      const turn = webAPI.getStatus();
       const gameHand = webAPI.getHand ? webAPI.getHand() : [];
 
       setGameState(status);
@@ -54,7 +54,7 @@ export default function App() {
 
   const endTurn = () => {
     try {
-      webAPI.finishPlayerTurn?.();
+      webAPI.endTurn?.();
       showMessage('➡️ Turno finalizado! Inimigo atacou.', 'info');
       setTimeout(updateGameState, 500);
     } catch (error) {
@@ -68,7 +68,7 @@ export default function App() {
   };
 
   const resetGame = () => {
-    window.location.reload();
+    (window as any ).location.reload();
   };
 
   if (!gameState) {
